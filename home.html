@@ -1,7 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="MyBlog Pro - Read modern blogs from creators worldwide.">
+  <meta name="keywords" content="blogs, tech blogs, lifestyle blogs, coding blog, writing platform">
+  <meta name="author" content="MyBlog Pro">
+
+  <title>Home | MyBlog Pro</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,11 +18,14 @@
 <header class="navbar">
   <div class="logo">MyBlog Pro</div>
 
-  <div>
-    <button class="nav-btn" id="homeBtn">Home</button>
-    <button class="nav-btn" id="addBlogBtn">Add Blog</button>
-  </div>
+  <nav class="nav-links">
+    <a class="nav-btn" href="index.html">Home</a>
+    <a class="nav-btn" href="addblog.html">Add Blog</a>
+    <a class="nav-btn" href="auth.html">Login</a>
+  </nav>
 </header>
+
+<main>
 
 <section class="search-wrap">
   <input class="search-input" id="searchInput" placeholder="Search blogs..." />
@@ -23,29 +34,31 @@
 <section class="section">
   <h3 class="section-title">BLOGGERS</h3>
 
-  <div class="scroll-row" id="bloggerRow">
+  <div class="scroll-row">
 
-    <div class="card blogger-card" data-id="1">
-      <h3 class="blogger-name">John Doe</h3>
-      <p class="blogger-desc">Tech blogs & dev tips</p>
-    </div>
+    <article class="card">
+      <h3>John Doe</h3>
+      <p>Tech blogs & dev tips</p>
+    </article>
 
-    <div class="card blogger-card" data-id="2">
-      <h3 class="blogger-name">Sarah Khan</h3>
-      <p class="blogger-desc">Lifestyle & productivity</p>
-    </div>
+    <article class="card">
+      <h3>Sarah Khan</h3>
+      <p>Lifestyle & productivity</p>
+    </article>
 
-    <div class="card blogger-card" data-id="3">
-      <h3 class="blogger-name">Alex Brown</h3>
-      <p class="blogger-desc">Backend systems</p>
-    </div>
+    <article class="card">
+      <h3>Alex Brown</h3>
+      <p>Backend systems</p>
+    </article>
 
   </div>
 </section>
+
+</main>
 
 <footer class="footer">
   © 2026 MyBlog Pro — All rights reserved
 </footer>
 
 </body>
-  </html>
+</html>
