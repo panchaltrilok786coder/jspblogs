@@ -63,7 +63,7 @@ loginBtn.addEventListener("click" , async ()=>{
   if(result.success == true){
     alert("U successfully logged in");
   }else{
-    alert("The email or password is incorrect!");
+    alert("The email or password is lincorrect!");
   }
 })
 
@@ -75,6 +75,6 @@ signupBtn.addEventListener("click" , async ()=>{
   if(result.success == true){
     alert("U successfully logged in");
   }else{
-    alert("The email or password is incorrect!");
+    alert("The email or password is sincorrect!");
   }
 })
