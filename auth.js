@@ -9,5 +9,5 @@ const loginPass = document.getElementById("loginPass");
 const signupEmail = document.getElementById("signupEmail");
 const signupPass = document.getElementById("signupPass");
 const userName = document.getElementById("signupName");
-const signupPass = document.getElementById("signupPass");
-const signupPass = document.getElementById("signupPass");
+const goSignup = document.getElementById("goSignup");
+const goLogin = document.getElementById("goLogin");
