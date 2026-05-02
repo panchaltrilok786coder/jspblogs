@@ -1,7 +1,7 @@
 import { db , auth } from "./firebase.js";
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { doc , setDoc , getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
+alert("Hello auth.js");
 const loginBox = document.getElementById("loginBox");
 const signupBox = document.getElementById("signupBox");
 const loginUser = document.getElementById("loginUser");
