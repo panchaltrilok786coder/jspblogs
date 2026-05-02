@@ -34,12 +34,13 @@ async function signUp(email, password){
   }
   alert(userCredential);
   const user = userCredential.user
-  setDoc((db, "users"),{
+  await setDoc(doc(db, "users", user.uid),{
     email,
-    createdAt: new Date();
+    createdAt: new Date()
   });
-  return{success : true, userCredetial};
+  return{success : true, userInfo :userCredential};
   } catch(err){
+    alert(err.message);
     return{success : false, error : err.message};
     alert(err.message);
   }
@@ -47,7 +48,7 @@ async function signUp(email, password){
 
 async function logIn(email, password){
   try{
-    const userCredential = await signInWithEmailAndPassword(email , password);
+    const userCredential = await signInWithEmailAndPassword(auth, email , password);
     return{success : true, userCredetial};
   } catch(err){
     return{success : false, error : err.message};
@@ -55,11 +56,11 @@ async function logIn(email, password){
 }
 
 loginBtn.addEventListener("click" , async ()=>{
-  if(!loginUser || !loginPass){
+  if(loginUser.value == "" || loginPass.value ==""){
     alert("Please fil the full email and password")
   }
-  const result = await logIn(loginUser, loginPass);
-  if(result.success =="true"){
+  const result = await logIn(loginUser.value, loginPass.value);
+  if(result.success == true){
     alert("U successfully logged in");
   }else{
     alert("The email or password is incorrect!");
@@ -70,8 +71,8 @@ signupBtn.addEventListener("click" , async ()=>{
   if(!signupEmail || !signupPass){
     alert("Please fil the full email and password")
   }
-  const result = await signup(loginUser, loginPass);
-  if(result.success =="true"){
+  const result = await signUp(loginUser.value, loginPass.value);
+  if(result.success == true){
     alert("U successfully logged in");
   }else{
     alert("The email or password is incorrect!");
