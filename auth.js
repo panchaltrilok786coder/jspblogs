@@ -141,7 +141,7 @@ window.addEventListener("load", async () => {
   try {
     alert("await result");
     const result = await getRedirectResult(auth);
-
+    alert("After google result");
     if (result?.user) {
       console.log("Google user:", result.user);
       alert(" Googleuserdetails");
