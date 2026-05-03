@@ -1,5 +1,3 @@
-alert("Hello auth.js");
-
 import { db, auth } from "./firebase.js";
 import {
   createUserWithEmailAndPassword,
@@ -124,10 +122,10 @@ signupBtn.addEventListener("click", async () => {
     alert(result.error);
   }
 });
-alert("Google signin coming");
+
 // ================= Google Auth =================
 const provider = new GoogleAuthProvider();
-alert("Provider");
+
 googleSignInBtn.addEventListener("click", async () => {
   try {
     console.log("Starting redirect...");
@@ -137,7 +135,7 @@ googleSignInBtn.addEventListener("click", async () => {
     alert(err.message);
   }
 });
-alert("Redirect result");
+
 // Handle redirect result
 window.addEventListener("load", async () => {
   try {
@@ -168,6 +166,7 @@ function checkAuthState(){
     }
     if(path.includes("auth.html")){
       window.location.href = "./home.html";
+      alert(JSON.stringify(user, null, 2));
       return;
     }
   })
