@@ -162,10 +162,10 @@ function checkAuthState(){
       window.location.href = "./auth.html";
       return;
       }
-    } else {
+    }
     if(path.includes("auth.html")){
       window.location.href = "./home.html";
-    }
+      return;
     }
   })
 }
