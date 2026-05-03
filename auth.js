@@ -6,9 +6,9 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithRedirect,
-  getRedirectResult
+  getRedirectResult,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
 import {
   doc,
   setDoc,
@@ -153,3 +153,20 @@ window.addEventListener("load", async () => {
     alert("Error: " + err.message);
   }
 });
+
+function checkAuthState(){
+  onAuthStateChanged(auth , (user)=>{
+    const path = window.location.pathname;
+    if(!user){
+      if(!path.includes("auth.html")){
+      window.location.href = "./auth.html";
+      return;
+      }
+    }
+    if(path.includes("auth.html")){
+      window.location.href = "./home.html";
+    }
+  })
+}
+
+checkAuthState();pp
