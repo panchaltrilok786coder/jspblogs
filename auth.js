@@ -124,22 +124,25 @@ signupBtn.addEventListener("click", async () => {
     alert(result.error);
   }
 });
-
+alert("Google signin coming");
 // ================= Google Auth =================
 const provider = new GoogleAuthProvider();
-
+alert("Provider");
 googleSignInBtn.addEventListener("click", () => {
+  alert("redirect calling inside el");
   signInWithRedirect(auth, provider);
+  alert("redirect called");
 });
-
+alert("Redirect result");
 // Handle redirect result
 window.addEventListener("load", async () => {
   try {
+    alert("await result");
     const result = await getRedirectResult(auth);
 
     if (result?.user) {
       console.log("Google user:", result.user);
-
+      alert(" Googleuserdetails");
       await createUserDocIfNotExists(result.user);
     }
   } catch (err) {
