@@ -161,6 +161,9 @@ function checkAuthState(){
       if(!path.includes("auth.html")){
       window.location.href = "./auth.html";
       return;
+      }else{
+         alert("U R on correct page");
+         return;
       }
     }
     if(path.includes("auth.html")){
