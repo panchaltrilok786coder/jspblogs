@@ -152,24 +152,23 @@ window.addEventListener("load", async () => {
   }
 });
 
-function checkAuthState(){
-  onAuthStateChanged(auth , (user)=>{
+function checkAuthState() {
+  onAuthStateChanged(auth, (user) => {
     const path = window.location.pathname;
-    if(!user){
-      if(!path.includes("auth.html")){
-      window.location.href = "./auth.html";
-      return;
-      }else{
-         alert("U R on correct page");
-         return;
+
+    if (!user) {
+      if (!path.includes("auth.html")) {
+        window.location.href = "./auth.html";
+      } else {
+        console.log("Already on auth page");
       }
-    }
-    if(path.includes("auth.html")){
-      window.location.href = "./home.html";
-      alert(JSON.stringify(user, null, 2));
       return;
     }
-  })
+
+    if (path.includes("auth.html")) {
+      window.location.href = "./home.html";
+    }
+  });
 }
 
 checkAuthState();
