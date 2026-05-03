@@ -128,10 +128,14 @@ alert("Google signin coming");
 // ================= Google Auth =================
 const provider = new GoogleAuthProvider();
 alert("Provider");
-googleSignInBtn.addEventListener("click", () => {
-  alert("redirect calling inside el");
-  signInWithRedirect(auth, provider);
-  alert("redirect called");
+googleSignInBtn.addEventListener("click", async () => {
+  try {
+    console.log("Starting redirect...");
+    await signInWithRedirect(auth, provider);
+  } catch (err) {
+    console.error("Redirect error:", err);
+    alert(err.message);
+  }
 });
 alert("Redirect result");
 // Handle redirect result
