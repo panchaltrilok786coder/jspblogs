@@ -10,6 +10,38 @@
 
   <title>Auth | MyBlog Pro</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Google Button Styling (only this part added) -->
+  <style>
+    .google-auth {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #googleSignInBtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border: 1px solid #dadce0;
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    #googleSignInBtn:hover {
+      background: #f7f8f8;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    #googleSignInBtn svg {
+      width: 18px;
+      height: 18px;
+    }
+  </style>
 </head>
 
 <body>
@@ -25,8 +57,8 @@
 
     <h2>Login</h2>
 
-    <input class="input-field" id="loginUser" placeholder="Email" required>
-    <input class="input-field" id="loginPass" placeholder="Password" required>
+    <input type="email" class="input-field" id="loginUser" placeholder="Email" required>
+    <input type="password" class="input-field" id="loginPass" placeholder="Password" required>
 
     <button class="btn-primary" id="loginBtn">Login</button>
 
@@ -41,26 +73,40 @@
 
     <h2>Sign Up</h2>
 
-    <input class="input-field" id="signupName" placeholder="Full Name">
-    <input class="input-field" id="signupEmail" placeholder="Email" required>
-    <input class="input-field" id="signupPass" placeholder="Password" required>
+    <input type="text" class="input-field" id="signupName" placeholder="Full Name">
+    <input type="email" class="input-field" id="signupEmail" placeholder="Email" required>
+    <input type="password" class="input-field" id="signupPass" placeholder="Password" required>
 
     <button class="btn-primary" id="signupBtn">Create Account</button>
 
     <p class="auth-switch" id="goLogin">
       Already have an account? Login
     </p>
-  <button id="googleSignInBtn">
-  <img src="google-logo.svg" width="18" />
-  Sign in with Google 
-  </button>
+
   </section>
+
+  <!-- GOOGLE AUTH -->
+  <div class="google-auth">
+    <button id="googleSignInBtn">
+      <!-- Official Google "G" SVG -->
+      <svg viewBox="0 0 48 48">
+        <path fill="#EA4335" d="M24 9.5c3.54 0 6.73 1.22 9.24 3.61l6.91-6.91C35.98 2.09 30.4 0 24 0 14.64 0 6.56 5.4 2.64 13.26l8.06 6.26C12.58 13.06 17.82 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.1 24.55c0-1.63-.15-3.2-.43-4.7H24v9h12.4c-.54 2.9-2.18 5.36-4.64 7.04l7.19 5.6C43.98 36.9 46.1 31.18 46.1 24.55z"/>
+        <path fill="#FBBC05" d="M10.7 28.52a14.5 14.5 0 010-9.04l-8.06-6.26A23.93 23.93 0 000 24c0 3.77.9 7.34 2.64 10.74l8.06-6.22z"/>
+        <path fill="#34A853" d="M24 48c6.48 0 11.92-2.13 15.89-5.81l-7.19-5.6c-2 1.35-4.55 2.15-8.7 2.15-6.18 0-11.42-3.56-13.3-8.72l-8.06 6.22C6.56 42.6 14.64 48 24 48z"/>
+      </svg>
+
+      Continue with Google
+    </button>
+  </div>
 
 </main>
 
 <footer class="footer">
   © 2026 MyBlog Pro — Secure Auth System
 </footer>
-<script src="./auth.js" type="module" defer></script>
+
+<script type="module" src="./auth.js"></script>
+
 </body>
 </html>
