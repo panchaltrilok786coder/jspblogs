@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithRedirect,
+  signInWithPopup,
   getRedirectResult,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
@@ -128,7 +129,8 @@ const provider = new GoogleAuthProvider();
 
 googleSignInBtn.addEventListener("click", async () => {
   try {
-    await signInWithRedirect(auth, provider);
+    const result = await signInWithPopup(auth, provider);
+    alert(result.user);
   } catch (err) {
     console.error("Redirect error:", err);
     alert(err.message);
@@ -183,7 +185,7 @@ function checkAuthState() {
 }
 
 async function initAuth() {
-  await handleRedirectResult();  // 🔥 must run first
+  // 🔥 must run first
   checkAuthState();              // then listen to auth
 }
 
