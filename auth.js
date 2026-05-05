@@ -182,5 +182,9 @@ function checkAuthState() {
   });
 }
 
-checkAuthState();
-handleRedirectResult();
+async function initAuth() {
+  await handleRedirectResult();  // 🔥 must run first
+  checkAuthState();              // then listen to auth
+}
+
+initAuth();
