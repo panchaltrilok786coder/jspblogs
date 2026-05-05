@@ -128,7 +128,6 @@ const provider = new GoogleAuthProvider();
 
 googleSignInBtn.addEventListener("click", async () => {
   try {
-    console.log("Starting redirect...");
     await signInWithRedirect(auth, provider);
   } catch (err) {
     console.error("Redirect error:", err);
@@ -136,34 +135,46 @@ googleSignInBtn.addEventListener("click", async () => {
   }
 });
 
-// Handle redirect result
-window.addEventListener("load", async () => {
+async function handleRedirectResult() {
   try {
-    alert("await result");
     const result = await getRedirectResult(auth);
-    alert("After google result");
-    if (result?.user) {
-      console.log("Google user:", result.user);
-      alert(" Googleuserdetails");
-      await createUserDocIfNotExists(result.user);
-    }
+
+    if (!result) return;
+
+    const user = result.user;
+
+    // Detect new user (optional)
+    const isNewUser = result._tokenResponse?.isNewUser;
+
+    await createUserDocIfNotExists(user, {
+      name: user.displayName
+    });
+
+    console.log("Redirect login success");
+    console.log("New user:", isNewUser);
+
   } catch (err) {
-    alert("Error: " + err.message);
+    console.error("Redirect error:", err);
   }
-});
+}
 
 function checkAuthState() {
-  onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, async (user) => {
     const path = window.location.pathname;
 
     if (!user) {
       if (!path.includes("auth.html")) {
         window.location.href = "./auth.html";
-      } else {
-        console.log("Already on auth page");
       }
       return;
     }
+
+    // Ensure user doc exists (safe fallback)
+    await createUserDocIfNotExists(user, {
+      name: user.displayName
+    });
+
+    console.log("User logged in:", user.email);
 
     if (path.includes("auth.html")) {
       window.location.href = "./home.html";
@@ -172,3 +183,4 @@ function checkAuthState() {
 }
 
 checkAuthState();
+handleRedirectResult();
