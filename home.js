@@ -6,7 +6,7 @@ import { auth } from "./firebase.js";
 document.getElementById("signOutBtn").addEventListener("click" , async ()=>{
   try{
   await signOut(auth);
-  window.location.href("./auth.html");
+  window.location.href = "./auth.html";
   } catch(err){
    alert(err.message);
   }
