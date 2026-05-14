@@ -11,7 +11,7 @@ form.addEventListener("submit", async (e) => {
   try {
 
     const response = await fetch(
-      "YOUR_STACKBLITZ_URL/add-blog",
+      "https://stackblitzstartersvnhlztqp-o1de--3000--4c73681d.local-corp.webcontainer.io",
       {
         method: "POST",
 
