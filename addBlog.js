@@ -11,7 +11,7 @@ form.addEventListener("submit", async (e) => {
   try {
 
     const response = await fetch(
-      "https://jspblogs.vercel.app/api/add-blog.js",
+      "https://jspblogs.vercel.app/api/add-blog",
       {
         method: "POST",
 
