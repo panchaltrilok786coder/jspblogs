@@ -32,7 +32,7 @@ form.addEventListener("submit", async (e) => {
 
   } catch (err) {
 
-    alert(err.message);
+    alert("This is err" + err.message);
 
   }
 
